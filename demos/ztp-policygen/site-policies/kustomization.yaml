@@ -7,7 +7,7 @@ generators:
   - common-policies/common-4.9.yaml
   - group-policies/group-du-sno.yaml
     # - group-policies/platform-upgrade-sno.yaml
-  - site-specific-policies/westford-lab.yaml
+    #- site-specific-policies/westford-lab.yaml
   #- site-specific-policies/telco-5g-lab.yaml
 resources:
 # List of Namespace*.yaml required by the PolicyGenTemplate*.yaml
