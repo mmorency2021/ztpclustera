@@ -1,0 +1,20 @@
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "cnfdb2"
+  namespace: "ztp-cnfdb2-policies"
+spec:
+  bindingRules:
+    name: "cnfdb2"
+  mcp: "master"
+  remediationAction: inform
+  sourceFiles:
+    - fileName: ClusterVersion.yaml
+      policyName: "platform-upgrade"
+      metadata:
+        name: version
+      spec:
+        channel: "fast-4.9"
+        desiredUpdate:
+          version: "4.9.11"
+

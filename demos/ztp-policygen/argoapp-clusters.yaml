@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+  name: clusters
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: clusters-sub
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: demos/ztp-policygen/site-configs
+    repoURL: https://github.com/ansvu/ztpclustera.git
+    targetRevision: master
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true

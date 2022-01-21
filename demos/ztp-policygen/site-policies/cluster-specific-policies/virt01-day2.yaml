@@ -1,0 +1,19 @@
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "virt01-day2"
+  namespace: "ztp-virt01-policies"
+spec:
+  bindingRules:
+    name: "snonode-virt01"
+  mcp: "master"
+  remediationAction: inform
+  sourceFiles:
+    - fileName: ClusterVersion.yaml
+      policyName: "platform-upgrade"
+      metadata:
+        name: version
+      spec:
+        channel: "fast-4.9"
+        desiredUpdate:
+          version: "4.9.15"

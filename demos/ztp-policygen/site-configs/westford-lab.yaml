@@ -1,0 +1,86 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "westford-lab"
+  namespace: "westford-lab"
+spec:
+  baseDomain: "cloud.lab.eng.bos.redhat.com"
+  pullSecretRef:
+    name: "assisted-deployment-pull-secret"
+  clusterImageSetNameRef: "img4.9.10-x86-64-appsub"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8SZmMS2ghs+23/yrtL9ij1H60Uzdq0j/8zsVsqjCf/hzR2zdifWrm+qDOLiNmEOSDokTEipcop/BZOUr3vkIESpG6wNgmOPKJZGvGnYlSFl9cjSxvP78PWZQtaybBh0Jaun9NZbK5m88vhUQQWmIqr37FwpqLE/dkDUKsprtke7HED/pZP0uif40GqrXbw/udt5FmZfv2j9MmZhtDbazGcy7X6qQXOybqboe6SYu9OUzCTqXK5s32p/u7SifZWhfW9rTU4CmKv1yWag5nQmiz9InTlNip1OxihgTi4FPjEtnpY2gwlkU373PWRCTCh5QTwyAQ6rmxfnjkiJr2xa/z5aMtdTxogyXmlVzVG8CB+NT9UX7jhM1yyhV+8HVZfbFjLpwm9/X7MNerc1LDbG+ef8YAilJPGvl1Tp6ZZt6uuoH4zIigNLRgxI2amuQoW8iZq9HUmU1KMihfKJRjqWVPjfy51hnjAwcTUMDUuGzpZdRIvX4jnA0n/FTkyk/eEts= kni@eko4.cloud.lab.eng.bos.redhat.com"
+  clusters:
+  - clusterName: "eric1"
+#    clusterType: "sno"
+#    clusterProfile: "du"
+    clusterLabels:
+  #    group-du-sno: ""
+  #    common-49: true
+      sites : "westford-lab"
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: 10.19.136.0/21
+    serviceNetwork:
+      - 172.30.0.0/16
+    networkType: "OVNKubernetes"
+#    numMasters: 1
+    additionalNTPSources:
+      - clock.corp.redhat.com 
+    nodes:
+      - hostName: "snonode.eric1.cloud.lab.eng.bos.redhat.com"
+        bmcAddress: "idrac-virtualmedia+https://10.19.136.42/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "eric1-bmh-secret"
+        bootMACAddress: "1c:40:24:99:5c:e7"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: "/dev/sdb"
+        cpuset: "0-1,16-17,20-21,24-25"
+        nodeNetwork:
+          config:
+            interfaces:
+              - name: eno1
+                type: ethernet
+                state: down
+              - name: eno2
+                type: ethernet
+                state: down
+              - name: bond0
+                type: bond
+                mac-address: "1c:40:24:99:5c:e7"
+                link-aggregation:
+                  mode: 802.3ad
+                  options:
+                    miimon: "140"
+                  port:
+                    - enp3s0f1
+                    - enp3s0f3
+                state: up
+                ipv4:
+                  enabled: true
+        #          dhcp: true
+                  address:
+                    - ip: 10.19.142.243
+                      prefix-length: 21
+                  dhcp: false
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                server:
+                  - 10.19.143.247
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-address: 10.19.143.254
+                  next-hop-interface: bond0
+                  table-id: 254
+          #  Interfaces are used to only apply this configurations in the node with the ifaces with the mac below
+          interfaces:
+            - name: "enp3s0f1"
+              macAddress: "1c:40:24:99:5c:e5"
+            - name: "enp3s0f3"
+              macAddress: "1c:40:24:99:5c:e7"

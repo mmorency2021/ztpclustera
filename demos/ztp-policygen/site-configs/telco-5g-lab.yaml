@@ -1,0 +1,58 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "telco-5g-lab"
+  namespace: "telco-5g-lab"
+spec:
+  baseDomain: "lab.eng.rdu2.redhat.com"
+  pullSecretRef:
+    name: "assisted-deployment-pull-secret"
+  clusterImageSetNameRef: "img4.9.10-x86-64-appsub"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8SZmMS2ghs+23/yrtL9ij1H60Uzdq0j/8zsVsqjCf/hzR2zdifWrm+qDOLiNmEOSDokTEipcop/BZOUr3vkIESpG6wNgmOPKJZGvGnYlSFl9cjSxvP78PWZQtaybBh0Jaun9NZbK5m88vhUQQWmIqr37FwpqLE/dkDUKsprtke7HED/pZP0uif40GqrXbw/udt5FmZfv2j9MmZhtDbazGcy7X6qQXOybqboe6SYu9OUzCTqXK5s32p/u7SifZWhfW9rTU4CmKv1yWag5nQmiz9InTlNip1OxihgTi4FPjEtnpY2gwlkU373PWRCTCh5QTwyAQ6rmxfnjkiJr2xa/z5aMtdTxogyXmlVzVG8CB+NT9UX7jhM1yyhV+8HVZfbFjLpwm9/X7MNerc1LDbG+ef8YAilJPGvl1Tp6ZZt6uuoH4zIigNLRgxI2amuQoW8iZq9HUmU1KMihfKJRjqWVPjfy51hnjAwcTUMDUuGzpZdRIvX4jnA0n/FTkyk/eEts= kni@eko4.cloud.lab.eng.bos.redhat.com"
+  clusters:
+  - clusterName: "ztpclustera"
+#    clusterType: "sno"
+#    clusterProfile: "du"
+    clusterLabels:
+      group-du-sno: ""
+      common-49: true
+      sites : "telco-5g-lab"
+    clusterImageSetNameRef: "openshift-v4.9.7"
+    networkType: "OVNKubernetes"
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: 10.19.109.64/26
+    serviceNetwork:
+      - 172.30.0.0/16
+    additionalNTPSources:
+      - clock.corp.redhat.com 
+      - pool.ntp.org
+    nodes:
+      - hostName: "snonode.ztpclustera.lab.eng.rdu2.redhat.com"
+        role: master
+        bmcAddress: "ilo5-virtualmedia://10.19.143.183/redfish/v1/Systems/1"
+        bmcCredentialsName:
+          name: "ztpclustera-bmh-secret"
+        bootMACAddress: "3c:ec:ef:19:34:ab"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          hctl: "2:0:0:0"
+          deviceName: "/dev/sdb"
+        cpuset: "0-3,40-43"
+        nodeNetwork:
+          config:
+            interfaces:
+              - name: ens5f0
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  dhcp: true
+                ipv6:
+                  enabled: false
+          interfaces:
+            - name: "ens5f0"
+              macAddress: "ac:1f:6b:55:90:20"

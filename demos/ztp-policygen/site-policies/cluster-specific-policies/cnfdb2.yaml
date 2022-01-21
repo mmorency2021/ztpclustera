@@ -1,0 +1,183 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "cnfdb2"
+  namespace: "ztp-cnfdb2-policies"
+spec:
+  bindingRules:
+    name: "cnfdb2"
+  mcp: "master"
+  remediationAction: inform
+  sourceFiles:
+#    - fileName: MachineConfigOOTRealTimeKernel.yaml
+#      policyName: "mc-oot-rtk-policy"
+#    - fileName: MachineConfigOOTDriver.yaml 
+#      policyName: "mc-oot-ice-policy"
+#    - fileName: MachineConfigOOTDriver.yaml
+#      policyName: "mc-oot-ice-ddp-policy"
+#      metadata:
+#        name: 11-ice-ddp-driver
+#      spec:
+#        #kernelArguments: -> added to PAO
+#        #  - "firmware_class.path=/var/lib/firmware/"
+#        config:
+#          ignition:
+#            version: 3.1.0
+#          storage:
+#            files:
+#            - contents:
+#                source: data:text/plain;charset=us-ascii;base64,IyEvYmluL2Jhc2gKCiMgVGhlIE1JVCBMaWNlbnNlCgojIENvcHlyaWdodCAoYykgMjAxOSBEdXN0eSBNYWJlCgojIFBlcm1pc3Npb24gaXMgaGVyZWJ5IGdyYW50ZWQsIGZyZWUgb2YgY2hhcmdlLCB0byBhbnkgcGVyc29uIG9idGFpbmluZyBhIGNvcHkKIyBvZiB0aGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmlsZXMgKHRoZSAiU29mdHdhcmUiKSwgdG8gZGVhbAojIGluIHRoZSBTb2Z0d2FyZSB3aXRob3V0IHJlc3RyaWN0aW9uLCBpbmNsdWRpbmcgd2l0aG91dCBsaW1pdGF0aW9uIHRoZSByaWdodHMKIyB0byB1c2UsIGNvcHksIG1vZGlmeSwgbWVyZ2UsIHB1Ymxpc2gsIGRpc3RyaWJ1dGUsIHN1YmxpY2Vuc2UsIGFuZC9vciBzZWxsCiMgY29waWVzIG9mIHRoZSBTb2Z0d2FyZSwgYW5kIHRvIHBlcm1pdCBwZXJzb25zIHRvIHdob20gdGhlIFNvZnR3YXJlIGlzCiMgZnVybmlzaGVkIHRvIGRvIHNvLCBzdWJqZWN0IHRvIHRoZSBmb2xsb3dpbmcgY29uZGl0aW9uczoKCiMgVGhlIGFib3ZlIGNvcHlyaWdodCBub3RpY2UgYW5kIHRoaXMgcGVybWlzc2lvbiBub3RpY2Ugc2hhbGwgYmUgaW5jbHVkZWQgaW4KIyBhbGwgY29waWVzIG9yIHN1YnN0YW50aWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS4KCiMgVEhFIFNPRlRXQVJFIElTIFBST1ZJREVEICJBUyBJUyIsIFdJVEhPVVQgV0FSUkFOVFkgT0YgQU5ZIEtJTkQsIEVYUFJFU1MgT1IKIyBJTVBMSUVELCBJTkNMVURJTkcgQlVUIE5PVCBMSU1JVEVEIFRPIFRIRSBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSwKIyBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBTkQgTk9OSU5GUklOR0VNRU5ULiBJTiBOTyBFVkVOVCBTSEFMTCBUSEUKIyBBVVRIT1JTIE9SIENPUFlSSUdIVCBIT0xERVJTIEJFIExJQUJMRSBGT1IgQU5ZIENMQUlNLCBEQU1BR0VTIE9SIE9USEVSCiMgTElBQklMSVRZLCBXSEVUSEVSIElOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBPUiBPVEhFUldJU0UsIEFSSVNJTkcgRlJPTSwKIyBPVVQgT0YgT1IgSU4gQ09OTkVDVElPTiBXSVRIIFRIRSBTT0ZUV0FSRSBPUiBUSEUgVVNFIE9SIE9USEVSIERFQUxJTkdTIElOCiMgVEhFIFNPRlRXQVJFLgoKc2V0IC1ldQoKI0V4YW1wbGU6IGh0dHA6Ly9hcGFjaGU6ODA4MCBpY2VfY29tbXMtMS4zLjI4LjAucGtnIC92YXIvbGliL2Zpcm13YXJlL2ludGVsL2ljZS9kZHAKCkREUF9MT0NBVElPTl9CQVNFPSQxOyBzaGlmdApERFBfVkVSU0lPTj0kMTsgc2hpZnQKRldfRk9MREVSPSQxOyBzaGlmdAoKbG9nZ2VyICJjcmVhdGluZyAke0ZXX0ZPTERFUn0gaWYgaXQgZG9lcyBub3QgZXhpc3QiCm1rZGlyIC1wICR7RldfRk9MREVSfQpsb2dnZXIgImRvd25sb2FkaW5nIHRoZSBJbnRlbCBERFAgZmlsZXMgZnJvbSAke0REUF9MT0NBVElPTl9CQVNFfS8kRERQX1ZFUlNJT04gdG8gJEZXX0ZPTERFUiBmb2xkZXIuLi4iCmN1cmwgLWsgJHtERFBfTE9DQVRJT05fQkFTRX0vJHtERFBfVkVSU0lPTn0gLS1vdXRwdXQgJHtGV19GT0xERVJ9L2ljZS5wa2cgfHwgbG9nZ2VyICJERFAgcGFja2FnZSBmYWlsZWQgdG8gZG93bmxvYWQiCgptb2Rwcm9iZSAtdiAtciBpY2UKCnNsZWVwIDUKCm1vZHByb2JlIC12IGljZQoK
+#              filesystem: root
+#              mode: 493
+#              path: /usr/local/bin/ice-ddp-driver
+#          systemd:
+#            units:
+#            - contents: |
+#                [Unit]
+#                Description=Update ddp for ice driver
+#                # Start before the network is up and after /var is mounted
+#                Wants=network-online.target
+#                After=crio.service
+#                Before=kubelet.service
+#
+#                [Service]
+#                Type=oneshot
+#                TimeoutStartSec=25m
+#                RemainAfterExit=true
+#                # Use bash to workaround https://github.com/coreos/rpm-ostree/issues/1936
+#                ExecStart=/usr/bin/bash -c "/usr/local/bin/ice-ddp-driver https://people.redhat.com/alosadag ice_comms-1.3.28.0.pkg /var/lib/firmware/intel/ice/ddp"
+#                ExecStop=/usr/bin/bash -c "echo 1"
+#                StandardOutput=journal+console
+#
+#                [Install]
+#                WantedBy=default.target
+#              enabled: true
+#              name: ddp-ice-driver.service
+#    - fileName: ClusterVersion.yaml
+#      policyName: "cluster-lifecycle"
+#      metadata:
+#        name: "version"
+#      spec:
+#       channel: stable-4.8
+#       clusterID: cfbdb052-5fed-46cf-93cf-3da6dfde5cee
+#       desiredUpdate:
+#         version: 4.8.17
+    - fileName: PtpConfigMaster.yaml
+      policyName: "ptp-config-policy"
+      metadata:
+        name: "du-ptp-master"
+      spec:
+        profile:
+        - name: "grandmaster"
+          interface: "eno1"
+          ptp4lOpts: "-2"
+          phc2sysOpts: "-a -r -n 24"
+        recommend:
+        - profile: "grandmaster"
+          priority: 1
+#    - fileName: SriovNetwork.yaml
+#      policyName: "sriov-nw-fh-policy"
+#      metadata:
+#        name: "sriov-nw-du-fh"
+#      spec:
+#        resourceName: du_fh
+#        vlan: 140
+#    - fileName: SriovNetworkNodePolicy.yaml
+#      policyName: "sriov-netdevice-policy"
+#      metadata:
+#        name: "xxv710-4"
+#      spec:
+#        deviceType: netdevice
+#        mtu: 1500
+#        linkType: eth
+#        isRdma: false
+#        nicSelector:
+#          pfNames: ["ens4f0"]
+#        numVfs: 8
+#        priority: 10
+#        resourceName: xxv710_4
+#    - fileName: SriovNetworkNodePolicy.yaml
+#      policyName: "sriov-vfio-policy"
+#      metadata:
+#        name: "xxv710-1"
+#      spec:
+#        deviceType: vfio-pci
+#        mtu: 1500
+#        linkType: eth
+#        isRdma: false
+#        nicSelector:
+#          pfNames: ["ens1f1"]
+#          rootDevices:
+#          - "0000:12:00.1"
+#          vendor: "8086"
+#          deviceID: "158b"
+#        numVfs: 8
+#        priority: 10
+#        resourceName: xxv710_1
+##    - fileName: SriovNetwork.yaml
+#      policyName: "sriov-nw-mh-policy"
+#      metadata:
+#        name: "sriov-nw-du-mh"
+#      spec:
+#        resourceName: du_mh
+#        vlan: 150
+#    - fileName: SriovNetworkNodePolicy.yaml
+#      policyName: "sriov-nnp-mh-policy"
+#      metadata:
+#        name: "sriov-nnp-du-mh"
+#      spec:
+#        deviceType: vfio-pci
+#        isRdma: false
+#        nicSelector:
+#          pfNames: ["ens7f0"]
+#        numVfs: 8
+#        priority: 10
+#        resourceName: du_mh
+    - fileName: PerformanceProfile.yaml
+      policyName: "perfprofile-policy"
+      metadata:
+        name: performance-sno
+        annotations:
+          kubeletconfig.experimental: |
+            {"topologyManagerScope": "pod",
+             "systemReserved": {"memory": "10.5Gi"}
+            }
+      spec:
+        additionalKernelArgs:
+        - "firmware_class.path=/var/lib/firmware/"
+        - "idle=poll"
+        - "rcupdate.rcu_normal_after_boot=0"
+        - "nohz_full=4-39,44-79"
+        cpu:
+          isolated: "4-39,44-79"
+          reserved: "0-3,40-43"
+        hugepages:
+          defaultHugepagesSize: 1G
+          pages:
+          - count: 8
+            size: 1G
+            node: 0
+          - count: 0
+            size: 1G
+            node: 1
+        numa:
+          topologyPolicy: single-numa-node
+        realTimeKernel:
+          enabled: true
+#    - fileName: TunedPerformancePatch.yaml
+#      policyName: "tuned-perf-patch-policy"
+#      spec:
+#        profile:
+#          - name: performance-patch
+#            data: |
+#              [main]
+#              summary=Configuration changes profile inherited from performance created tuned
+#              include=openshift-node-performance-openshift-node-performance-profile
+#              [bootloader]
+#              cmdline_crash=nohz_full=2-15,18-19,22-23,26-31
+#              [sysctl]
+#              kernel.timer_migration=1
+#              [service]
+#              service.stalld=start,enable
+#

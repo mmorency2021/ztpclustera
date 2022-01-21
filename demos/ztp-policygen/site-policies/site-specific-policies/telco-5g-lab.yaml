@@ -1,0 +1,19 @@
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "telco5glab-upgrade"
+  namespace: "ztp-telco-5g-lab-policies"
+spec:
+  bindingRules:
+    sites: "telco-5g-lab"
+  mcp: "master"
+  remediationAction: inform
+  sourceFiles:
+    - fileName: ClusterVersion.yaml
+      policyName: "platform-upgrade"
+      metadata:
+        name: version
+      spec:
+        channel: "stable-4.9"
+        desiredUpdate:
+          version: "4.9.13"

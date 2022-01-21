@@ -1,0 +1,57 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ztp-westford-lab-policies
+  labels:
+    name: westford-lab-policies
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ztp-telco-5g-lab-policies
+  labels:
+    name: telco-5g-lab-policies
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ztp-group-du-sno
+  labels:
+    name: group-du-sno
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ztp-common
+  labels:
+    name: common
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ztp-cnfdb1-policies
+  labels:
+    name: cnfdb1-policies
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ztp-cnfdb2-policies
+  labels:
+    name: cnfdb2-policies
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ztp-eric1-policies
+  labels:
+    name: eric1-policies
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ztp-virt01-policies
+  labels:
+    name: virt01-policies
+---
