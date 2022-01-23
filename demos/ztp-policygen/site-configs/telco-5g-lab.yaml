@@ -33,14 +33,14 @@ spec:
     nodes:
       - hostName: "snonode.ztpclustera.lab.eng.rdu2.redhat.com"
         role: master
-        bmcAddress: "ilo5-virtualmedia://10.19.143.183/redfish/v1/Systems/1"
+        bmcAddress: "ipmi://10.19.143.183"
         bmcCredentialsName:
           name: "ztpclustera-bmh-secret"
         bootMACAddress: "3c:ec:ef:19:34:ab"
         bootMode: "UEFI"
         rootDeviceHints:
           hctl: "2:0:0:0"
-          deviceName: "/dev/sdb"
+          deviceName: "/dev/sda"
         cpuset: "0-3,40-43"
         nodeNetwork:
           config:
