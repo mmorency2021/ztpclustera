@@ -30,7 +30,7 @@ spec:
     additionalNTPSources:
       - clock.corp.redhat.com 
     nodes:
-      - hostName: "snonode.ztpclustera.lab.eng.rdu2.redhat.com"
+      - hostName: "snonode.sno1.lab.eng.rdu2.redhat.com"
         role: master
         bmcAddress: "redfish-virtualmedia://10.19.143.183/redfish/v1/Systems/1"
         bmcCredentialsName:
