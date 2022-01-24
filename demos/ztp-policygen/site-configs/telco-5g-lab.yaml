@@ -18,7 +18,7 @@ spec:
       group-du-sno: ""
       common-49: true
       sites : "telco-5g-lab"
-    clusterImageSetNameRef: "openshift-v4.9.7"
+    clusterImageSetNameRef: "openshift-4.9.12"
     networkType: "OVNKubernetes"
     clusterNetwork:
       - cidr: 10.128.0.0/14
