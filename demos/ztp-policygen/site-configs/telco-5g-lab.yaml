@@ -52,6 +52,10 @@ spec:
                   dhcp: true
                 ipv6:
                   enabled: false
+            dns-resolver:
+              config:
+                server:
+                  - 10.19.109.65                  
           interfaces:
             - name: "ens5f0"
               macAddress: "ac:1f:6b:55:90:20"
