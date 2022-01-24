@@ -8,7 +8,7 @@ spec:
   baseDomain: "lab.eng.rdu2.redhat.com"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "img4.9.10-x86-64-appsub"
+  clusterImageSetNameRef: "openshift-4.9.12"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8SZmMS2ghs+23/yrtL9ij1H60Uzdq0j/8zsVsqjCf/hzR2zdifWrm+qDOLiNmEOSDokTEipcop/BZOUr3vkIESpG6wNgmOPKJZGvGnYlSFl9cjSxvP78PWZQtaybBh0Jaun9NZbK5m88vhUQQWmIqr37FwpqLE/dkDUKsprtke7HED/pZP0uif40GqrXbw/udt5FmZfv2j9MmZhtDbazGcy7X6qQXOybqboe6SYu9OUzCTqXK5s32p/u7SifZWhfW9rTU4CmKv1yWag5nQmiz9InTlNip1OxihgTi4FPjEtnpY2gwlkU373PWRCTCh5QTwyAQ6rmxfnjkiJr2xa/z5aMtdTxogyXmlVzVG8CB+NT9UX7jhM1yyhV+8HVZfbFjLpwm9/X7MNerc1LDbG+ef8YAilJPGvl1Tp6ZZt6uuoH4zIigNLRgxI2amuQoW8iZq9HUmU1KMihfKJRjqWVPjfy51hnjAwcTUMDUuGzpZdRIvX4jnA0n/FTkyk/eEts= kni@eko4.cloud.lab.eng.bos.redhat.com"
   clusters:
   - clusterName: "sno1"
@@ -32,7 +32,7 @@ spec:
     nodes:
       - hostName: "snonode.sno1.lab.eng.rdu2.redhat.com"
         role: master
-        bmcAddress: "redfish-virtualmedia://10.19.143.183/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia://10.19.143.183/redfish/v1/Managers/1"
         bmcCredentialsName:
           name: "ztpclustera-bmh-secret"
         bootMACAddress: "3c:ec:ef:19:34:ab"
