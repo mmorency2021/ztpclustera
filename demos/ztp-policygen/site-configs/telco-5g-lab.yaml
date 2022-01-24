@@ -49,23 +49,9 @@ spec:
                 state: up
                 ipv4:
                   enabled: true
-                  address:
-                    - ip: 10.19.109.70 #worker-0/sno-0
-                      prefix-length: 26
-                  dhcp: false                  
-                  #dhcp: true
+                  dhcp: true
                 ipv6:
                   enabled: false
-            dns-resolver:
-              config:
-                server:
-                  - 10.19.109.65
-            routes:
-              config:
-                - destination: 0.0.0.0/0
-                  next-hop-address: 10.19.109.126
-                  next-hop-interface: ens5f0
-                  table-id: 254                  
           interfaces:
             - name: "ens5f0"
               macAddress: "ac:1f:6b:55:90:20"
