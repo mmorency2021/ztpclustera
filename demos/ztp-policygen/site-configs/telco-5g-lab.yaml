@@ -32,7 +32,7 @@ spec:
     nodes:
       - hostName: "snonode.sno1.lab.eng.rdu2.redhat.com"
         role: master
-        bmcAddress: "redfish-virtualmedia://10.19.143.183/redfish/v1/Systems/1"
+        bmcAddress: "redfish-virtualmedia+https://10.19.143.183/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "ztpclustera-bmh-secret"
         bootMACAddress: "3c:ec:ef:19:34:ab"
