@@ -45,6 +45,7 @@ spec:
           config:
             interfaces:
               - name: ens5f0
+                macAddress: "ac:1f:6b:55:90:20"
                 type: ethernet
                 state: up
                 ipv4:
