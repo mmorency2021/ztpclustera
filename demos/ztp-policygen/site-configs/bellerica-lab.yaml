@@ -1,0 +1,58 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "sno-1"
+  namespace: "sno-1"
+spec:
+  baseDomain: "hubcluster-1.lab.eng.cert.redhat.com"
+  pullSecretRef:
+    name: "assisted-deployment-pull-secret-sno-1"
+  clusterImageSetNameRef: "img4.9.18-x86-64-appsub"
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHTg4NxvWM9lVfAtWIVIpnZFIYosJHuCU0PZLDiZ91Zt kni@r1-provisioner.lab.eng.rdu2.redhat.com"
+  clusters:
+  - clusterName: "sno-1"
+#    clusterType: "sno"
+#    clusterProfile: "du"
+    clusterLabels:
+      group-du-sno: ""
+      common-49: true
+      sites : "sno-1"
+    clusterImageSetNameRef: "img4.9.18-x86-64-appsub"
+    networkType: "OVNKubernetes"
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: 192.168.24.68/27
+    serviceNetwork:
+      - 172.30.0.0/16
+    additionalNTPSources:
+      - clock.corp.redhat.com 
+      - pool.ntp.org
+    nodes:
+      - hostName: "sno-1.hubcluster-1.lab.eng.cert.redhat.com"
+        role: master
+        bmcAddress: "idrac-virtualmedia://192.168.24.154/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "ztpclustera-bmh-secret"
+        bootMACAddress: "b8:ce:f6:56:a9:ea"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          hctl: "2:0:0:0"
+          deviceName: "/dev/sda"
+       #cpuset: "0-3,40-43"
+        nodeNetwork:
+          config:
+            interfaces:
+              - name: eno1
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  dhcp: true
+                ipv6:
+                  enabled: false
+          interfaces:
+            - name: "eno1"
+              macAddress: "b8:ce:f6:56:a9:ea"
