@@ -11,8 +11,8 @@ spec:
   project: default
   source:
     path: demos/ztp-policygen/site-configs
-    repoURL: https://github.com/ansvu/ztpclustera.git
-    targetRevision: master
+    repoURL: https://github.com/mmorency2021/ztpclustera.git
+    targetRevision: main
   syncPolicy:
     automated: {}
     syncOptions:
