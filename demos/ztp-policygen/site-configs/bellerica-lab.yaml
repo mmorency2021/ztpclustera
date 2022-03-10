@@ -35,7 +35,7 @@ spec:
         role: master
         bmcAddress: "idrac-virtualmedia://192.168.24.154/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
-          name: "ztpclustera-bmh-secret"
+          name: "sno-1"
         bootMACAddress: "b8:ce:f6:56:a9:ea"
         bootMode: "UEFI"
         rootDeviceHints:
