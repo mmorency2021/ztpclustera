@@ -1,4 +1,4 @@
 generators:
 # list of all the siteConfig*.yaml exist in the repository
 #  - telco-5g-lab.yaml
-  - bellerica-lab.yaml
+#  - bellerica-lab.yaml
